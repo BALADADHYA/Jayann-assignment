@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Classmates</title>
+<style>
+    body {
+        
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+       
+        color: Magenta;
+        padding: 15px;
+        text-align: center;
+         0.1); 
+    }
+
+    #buttonContainer {
+        display: flex;
+        gap: 2in; 
+    }
+
+    #imageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        
+    }
+
+    button {
+        color: white;
+        border: none;
+        padding: 15px 25px; 
+        cursor: pointer;
+        display: block; 
+        border-radius: 10px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #boysButton {
+        background-color: darkMagenta;
+    }
+
+    #girlsButton {
+        background-color: purple;
+    }
+
+    #imageContainer span {
+        background-color: lavender; 
+        color: red; 
+        padding: 5px 10px; 
+         border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h2>My Classmates</h2>
+
+<div id="imageContainer"></div>
+
+<div id="buttonContainer">
+    <button id="boysButton">Boys</button>
+    <button id="girlsButton">Girls</button>
+</div>
+
+<script>
+var boyImages = [
+  
+    { src: "michael.jpg", name: "Michael Picardal" },
+    { src: "zul.jpg", name: "Zul Nuguit" },
+    { src: "bim.jpg", name: "Harchel Palada" },
+    { src: "fred.jpg", name: "Alfredo Lucapa Jr." }
+];
+
+var girlImages = [
+    { src: "roms.jpg", name: "Romilyn Pontica" },
+    { src: "mars.jpg", name: "Mary Ann Sugalan" },
+    
+    { src: "ai.jpg", name:"April Rose Dista" },
+    { src: "rose.jpg", name: "Rosgie Rosco" },
+];
+
+var boyIndex = 0;
+var girlIndex = 0;
+
+document.getElementById("boysButton").addEventListener("click", function() {
+    var image = boyImages[boyIndex];
+    var imageUrl = image.src;
+    var name = image.name;
+    document.getElementById("imageContainer").innerHTML = `<img src="${imageUrl}" ><br><span>${name}</span>`;
+    boyIndex = (boyIndex + 1) % boyImages.length;
+});
+
+document.getElementById("girlsButton").addEventListener("click", function() {
+    var image = girlImages[girlIndex];
+    var imageUrl = image.src;
+    var name = image.name;
+    document.getElementById("imageContainer").innerHTML = `<img src="${imageUrl}" ><br><span>${name}</span>`;
+    girlIndex = (girlIndex + 1) % girlImages.length;
+});
+</script>
+
+</body>
+</html>
